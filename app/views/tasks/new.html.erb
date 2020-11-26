@@ -1,0 +1,16 @@
+
+<div class="container">
+  <h2 class="display-4 title">New tasks</h2>
+  <div>
+    <%= form_for @task, :html => {:class => 'form-group'} do |f| %>
+    <%= f.label :title %>
+    <%= f.text_field :title, class: 'form-control' %>
+    <%= f.label :details %>
+    <%= f.text_field :details, class: 'form-control' %><br>
+    <%= f.submit class:"btn btn-primary" %>
+    <% end %>
+  </div>
+  <div>
+    <i class="fas fa-history"></i> <%= link_to "Back to list", tasks_path %>
+  </div>
+</div>
