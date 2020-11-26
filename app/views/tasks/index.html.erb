@@ -1,14 +1,25 @@
 <div class="container">
-  <h1 class="display-3 title">My tasks</h1>
+  <h2 class="display-4 title">My tasks</h2>
 
   <ul>
     <% @tasks.each do |task| %>
-    <li>
-      <input type="checkbox" id="completed" <%= task.completed ? "checked" : "" %>>
-      <%= link_to task.title, task_path(task) %>
+    <li class='d-flex justify-content-start align-items-baseline'>
+      <div>
+        <input type="checkbox" id="completed" class='mr-2' <%= task.completed ? "checked" : "" %>>
+      </div>
+      <div>
+        <%= link_to task.title, task_path(task) %>
+      </div>
+      <div>
+        <%= link_to task_path(task), class:'btn', method: :delete, data: { confirm: "Are you sure?"} do %>
+        <i class="fas fa-trash-alt"></i>
+        <% end %>
+      </div>
     </li>
     <% end %>
   </ul>
-  
-
+  <hr>
+  <div>
+    <i class="fas fa-plus"></i> <%= link_to "Add a new task", new_task_path %>
+  </div>
 </div>
